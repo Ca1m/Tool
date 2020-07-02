@@ -1,8 +1,12 @@
-package thread.ExecutorService;
+package thread.Executors;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * 定长线程池，控制线程的数量
+ * @author Infosec_jy
+ */
 public class Test_newFixedThreadPool {
 
 	public static void main(String[] args) {

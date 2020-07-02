@@ -1,4 +1,4 @@
-package thread.ExecutorService;
+package thread.Executors;
 
 public class Test_ExecutorService {
 

@@ -9,7 +9,8 @@ import java.sql.Statement;
 public class Test_mysql {
 
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://10.20.86.101:3306/ca_63_rsa_ocsp";
+	//static final String DB_URL = "jdbc:mysql://10.20.86.101:3306/ca_63_rsa_ocsp";
+	static final String DB_URL = "jdbc:mysql://10.20.86.101:3306/ca_55_jy";
 
 	public static void main(String[] args) {
 		Connection conn = null;
@@ -29,20 +30,20 @@ public class Test_mysql {
 			stmt = conn.createStatement();
 			String sql;
 			
-			sql = "SELECT ID, AUTHCODE FROM CERTINFO WHERE ID=48867";
+			//sql = "SELECT ID, AUTHCODE FROM CERTINFO WHERE ID=48867";
+			sql = "SELECT * FROM CA_CERTINFO";
 			ResultSet rs = stmt.executeQuery(sql);
-			while (rs.next()) {
-				int id = rs.getInt("id");
-				String authcode = rs.getString("AUTHCODE");
-				System.out.println("ID: " + id);
-				System.out.println("authcode: " + authcode);
-			}
 			
+			while (rs.next()) {
+				
+				String certSN = rs.getString("CERTSN");
+				
+				System.out.println("certSN: " + certSN);
+			}
+			/*
 			sql = "UPDATE CERTINFO SET AUTHCODE='authcode_3' WHERE ID='48867' LIMIT 1";
 			stmt.executeUpdate(sql);
-			
 			sql = "SELECT ID, AUTHCODE FROM CERTINFO WHERE ID=48867";
-			
 			
 			ResultSet rs_1 = stmt.executeQuery(sql);
 			while (rs_1.next()) {
@@ -51,6 +52,7 @@ public class Test_mysql {
 				System.out.println("ID: " + id);
 				System.out.println("authcode: " + authcode);
 			}
+			*/
 			conn.commit();
 			rs.close();
 			stmt.close();

@@ -1,7 +1,13 @@
-package thread.ExecutorService;
+package thread.Executors;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * 可缓存线程池，如果线程池超过处理需要，灵活回收线程
+ * @author Infosec_jy
+ *
+ */
 public class Test_CachedThreadPool {
 
 	public static void main(String[] args) {
