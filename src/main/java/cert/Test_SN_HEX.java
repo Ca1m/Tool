@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**  
- * @Description (��������) 
+ * @Description
  * @Author jy    
  * @Time 2019-07-17 20:52
  */
@@ -18,18 +18,24 @@ public class Test_SN_HEX {
 	 */
 	public static void main(String[] args) throws IOException {
 	
-		//String sn = "16314519";
-		String sn = "1751332";
-		String hex = "1ab924"; // 16����
-		//String hex = "020202ba"; // 16����
+		String sn = "15899383";
+		String hex = "00f29af7";
 		
-		// BigDecimal ���ɱ�����⾫��������
-		// string ת  BigDecimal
-		String SN = new BigDecimal("16314519").toBigInteger().toString(16);
+		// BigDecimal  to  SN
+		String SN = new BigDecimal(sn).toBigInteger().toString(16);
 		System.out.println(SN);
 
-		// string ת  BigDecimal
-		BigDecimal integer  = new BigDecimal(new BigInteger("f8f097",16));			
-		System.out.println(integer);		
+		// SN  to  BigDecimal
+		BigInteger bigInteger = new BigInteger(hex,16);
+		
+		BigDecimal integer  = new BigDecimal(new BigInteger(hex,16));			
+		System.out.println(integer);
+		
 	}
 }
+
+
+
+
+
+

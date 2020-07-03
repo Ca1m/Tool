@@ -44,5 +44,6 @@
 	<classpathentry kind="lib" path="lib/protobuf.jar"/>
 	<classpathentry kind="lib" path="lib/ServerFrameWork_6.3.1.4.jar"/>
 	<classpathentry kind="lib" path="lib/ServerFrameWork_crypto_6.3.1.4.jar"/>
+	<classpathentry kind="lib" path="lib/bcpkix-jdk15on-1.60.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

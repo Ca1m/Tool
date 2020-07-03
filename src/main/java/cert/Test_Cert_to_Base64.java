@@ -36,11 +36,11 @@ public class Test_Cert_to_Base64 {
 	public static void main(String[] args) throws CertificateException, NoSuchProviderException, IOException {
 		Security.addProvider(new InfosecProvider());
 		
-		// �ļ�
+		
 		//String cert = "D:/cert.p7b";
 		String cert = "E:/1_Project/1_Eclipse/CA_Admin/caServer_50/cert/ca.cer";
 		
-		// �ļ�  ת  String 
+		//  String 
 		FileInputStream fin_1 = new FileInputStream(new File(cert));
 		byte[] bytes = new byte[fin_1.available()];
 		fin_1.read(bytes);
