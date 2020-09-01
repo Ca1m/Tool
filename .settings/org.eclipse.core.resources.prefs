@@ -4,3 +4,4 @@ encoding//src/main/java/top/yancc/cert/Test_String_Byte.java=GBK
 encoding//src/main/java/top/yancc/cert/pkcs10/ParseCSRController.java=GBK
 encoding//src/main/java/top/yancc/cert/sm2/AlgSm2Demo.java=UTF-8
 encoding//src/main/java/top/yancc/java/time/Test_TimeZone.java=UTF-8
+encoding//src/main/resources/byte_String/read_gbk.txt=GBK
