@@ -23,7 +23,6 @@ public class CSR_Tools {
 	private FileLogger log = FileLogger.getLogger(this.getClass());
 	
 	
-	
 	public static void main(String[] args) throws Exception {
 		Security.addProvider(new InfosecProvider());
 

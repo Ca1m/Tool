@@ -21,13 +21,13 @@ public class Test_String_Byte {
 	
 	private static void string_To_Byte() throws IOException {
 		
-		String s = "A";  // UTF-8
+		String s = "中";  // UTF-8
 		
 		byte[] bs_g = s.getBytes("gbk");
 		byte[] bs_g0 = encoder.encode(bs_g);
 		
-		System.out.println(Arrays.toString(bs_g));  //  中 在 gbk中的编码为 [-42, -48]
-		System.out.println(Arrays.toString(bs_g0)); //    [49, 116, 65, 61]
+		System.out.println(Arrays.toString(bs_g));  // 中 在 gbk中的编码为 [-42, -48]
+		System.out.println(Arrays.toString(bs_g0)); // 经过Base64编码之后[49, 116, 65, 61]
 		
 		
 		// 直接输出
