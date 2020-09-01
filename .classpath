@@ -38,18 +38,8 @@
 	<classpathentry kind="lib" path="lib/jna.jar"/>
 	<classpathentry kind="lib" path="lib/NetCertSyncBeans.jar"/>
 	<classpathentry kind="lib" path="lib/protobuf.jar"/>
-	<classpathentry kind="lib" path="lib/bcpkix-jdk15on-1.60.jar"/>
-	<classpathentry kind="lib" path="lib/Dm7JdbcDriver.jar"/>
-	<classpathentry kind="lib" path="lib/mchange-commons-java-0.2.11.jar"/>
-	<classpathentry kind="lib" path="lib/mchange-commons-java-0.2.15.jar"/>
-	<classpathentry kind="lib" path="lib/c3p0-0.8.5.2.jar"/>
-	<classpathentry kind="lib" path="lib/dm8-oracle-jdbc16-wrapper.jar"/>
-	<classpathentry kind="lib" path="lib/itextpdf-5.1.0.jar"/>
-	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="lib/jaxen-1.1-beta-4.jar"/>
-	<classpathentry kind="lib" path="lib/ExportPKTool1.0.jar"/>
-	<classpathentry kind="lib" path="lib/RADS_6.2.2.1.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="lib/RADS_6.2.2.1.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/0_NetCertSFW6.2"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
