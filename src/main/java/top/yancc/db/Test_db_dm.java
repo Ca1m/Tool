@@ -8,74 +8,70 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import javax.management.Query;
+
+import cn.com.infosec.netcert.framework.dao.jdbc.Parameter;
+import cn.com.infosec.netcert.framework.dao.jdbc.Parameters;
+import cn.com.infosec.netcert.framework.dao.jdbc.QueryResult;
 
 
 
 public class Test_db_dm {
 
 	public static void main(String[] args) throws Exception {
-		ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
-		C3P0 c3p0 = C3P0.getInstance();
 	
-		// 任务
-		for (int i = 0; i < 1000; i++) {
-			final int index = i;
-			
-			// 从线程池获取一个 线程，执行逻辑代码
-			fixedThreadPool.execute(new Runnable() {
-				public void run() {
-					try {
-						System.out.println("index:" + index);
-						Connection connection = c3p0.getConnection();		
-						String insertStr = "insert into USERCERTENTITY (CERTSN,CERTENTITY,SUBJECTKEYID) values (?,'MIICIjCCAcWgAwIBAgIFOds3CDcwDAYIKoEcz1UBg3UFADAxMQswCQYDVQQGEwJjbjEQMA4GA1UECgwHaW5mb3NlYzEQMA4GA1UECwwHaW5mb3NlYzAeFw0yMDA3MjAwMzE0NTBaFw0yMDA4MTkwMzE0NTBaMDYxCzAJBgNVBAYTAmNuMScwJQYDVQQDDB5qemowMDFfMTU5NTIxNTYyODE0N18yODA5MDA0ODAwWTATBgcqhkjOPQIBBggqgRzPVQGCLQNCAAQpDYhc4/FIItmg9bErhDjRmQy2SvWRyJeMqrhH4PJQOAQGNaRfDNVUPJN7ytN3ZONqi4U6Mc5Jc1HcYMwUCGpco4HCMIG/MB8GA1UdIwQYMBaAFAh0+wyXH4lNok6zNH6hiNKUMPxzMAkGA1UdEwQCMAAwYgYDVR0fBFswWTBXoFWgU6RRME8xDjAMBgNVBAMMBWNybDUwMQwwCgYDVQQLDANjcmwxEDAOBgNVBAsMB2luZm9zZWMxEDAOBgNVBAoMB2luZm9zZWMxCzAJBgNVBAYTAmNuMA4GA1UdDwEB/wQEAwIGwDAdBgNVHQ4EFgQUc7SwQFAD49tI1mUAx2e8LgiaCwUwDAYIKoEcz1UBg3UFAANJADBGAiEA1UW1wAgPpFiM+73MHepA84EFGJBKBtI+xuT0CHi4BZ8CIQCFXqckGp0toIAF7zX/fjioPm8hIRaF9/cNoRcTL06g/g==','c7SwQFAD49tI1mUAx2e8LgiaCwU=')";
-						PreparedStatement pstmt = connection.prepareStatement(insertStr);
-
-						BigDecimal certSN = new BigDecimal(String.valueOf(index)).add(new BigDecimal("248490952718")).subtract(new BigDecimal(1));
-							
-						System.out.println("--------------------------thread:" + Thread.currentThread().getName());
-						
-						pstmt.setBigDecimal(1, certSN);	
-						int result = pstmt.executeUpdate();
-						System.out.println("执行的结果是：" + result);
-
-						pstmt.close();
-						connection.close(); // 关闭连接
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			});
-		}
-		System.out.println("---------------- 增 加 结 束 ----------------\n");
+		query();
+		
 	}
 
 	
 	
-	
-	
-	
-	
-	public static Connection init() throws Exception {
+	public static void query() throws Exception {
 
 		String jdbcString = "dm.jdbc.driver.DmDriver";
-		String urlString = "jdbc:dm://10.20.84.100:5236";
+		String urlString = "jdbc:dm://10.20.84.100:5237";
 
 		String userName = "TESET_JY_1";
+		userName = "CA6330SRR";
 		String passWord = "111111111";
 
 		Class.forName(jdbcString);
 
 		// 连接
 		Connection connection = DriverManager.getConnection(urlString, userName, passWord);
-		return connection;
+		
+		String sql;
+		sql = "select MAX(CDPID) m from CERTINFO";
+		Parameters ps = new Parameters();
+		PreparedStatement st = connection.prepareStatement(sql);
+		
+		
+		//sql = "SELECT ID, AUTHCODE FROM CERTINFO WHERE ID=48867";
+		
+		ResultSet rs = st.executeQuery(sql);
+		
+		while (rs.next()) {
+			//String m = rs.getString("m");
+			BigDecimal d = rs.getBigDecimal("m");
+			int cdp = d.intValue();
+			System.out.println("CDPID: " + cdp);
+		}
+		try {
+			st.close();
+		} catch (Exception e) {
+			System.out.println(e);
+			e.printStackTrace();
+		}
+		connection.close();
 	}
-
+	
 	public static void operation(Connection connection) throws Exception {
 
-		
-		
 		/*
 		 * 1. 构造插入数据库语句； 2. 创建语句对象； 3. 为参数赋值； 4. 执行语句； 5. 关闭语句。
 		 */
@@ -87,9 +83,7 @@ public class Test_db_dm {
 		int result = pstmt.executeUpdate();
 		System.out.println(result);
 		
-		
 		/*
-		 *
 		 * 1. 构建更新语句； 2. 创建语句对象； 3. 为参数赋值； 4. 执行语句； 5. 关闭语句。
 		 */
 
@@ -108,7 +102,6 @@ public class Test_db_dm {
 		/*
 		 * 1. 创建语句对象； 2. 执行查询； 3. 显示结果集； 4. 关闭结果集； 5. 关闭语句对象。
 		 */
-
 		System.out.println("---------------- 查 询 开 始 ----------------");
 		String queryStr = "select * from XXX.XXX.XXX";
 		Statement stmt = connection.createStatement();
@@ -150,6 +143,43 @@ public class Test_db_dm {
 		}
 	}
 
+	public static void test() {
+		ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
+		C3P0 c3p0 = C3P0.getInstance();
+	
+		// 任务
+		for (int i = 0; i < 1000; i++) {
+			final int index = i;
+			
+			// 从线程池获取一个 线程，执行逻辑代码
+			fixedThreadPool.execute(new Runnable() {
+				public void run() {
+					try {
+						System.out.println("index:" + index);
+						Connection connection = c3p0.getConnection();		
+						String insertStr = "insert into USERCERTENTITY (CERTSN,CERTENTITY,SUBJECTKEYID) values (?,'MIICIjCCAcWgAwIBAgIFOds3CDcwDAYIKoEcz1UBg3UFADAxMQswCQYDVQQGEwJjbjEQMA4GA1UECgwHaW5mb3NlYzEQMA4GA1UECwwHaW5mb3NlYzAeFw0yMDA3MjAwMzE0NTBaFw0yMDA4MTkwMzE0NTBaMDYxCzAJBgNVBAYTAmNuMScwJQYDVQQDDB5qemowMDFfMTU5NTIxNTYyODE0N18yODA5MDA0ODAwWTATBgcqhkjOPQIBBggqgRzPVQGCLQNCAAQpDYhc4/FIItmg9bErhDjRmQy2SvWRyJeMqrhH4PJQOAQGNaRfDNVUPJN7ytN3ZONqi4U6Mc5Jc1HcYMwUCGpco4HCMIG/MB8GA1UdIwQYMBaAFAh0+wyXH4lNok6zNH6hiNKUMPxzMAkGA1UdEwQCMAAwYgYDVR0fBFswWTBXoFWgU6RRME8xDjAMBgNVBAMMBWNybDUwMQwwCgYDVQQLDANjcmwxEDAOBgNVBAsMB2luZm9zZWMxEDAOBgNVBAoMB2luZm9zZWMxCzAJBgNVBAYTAmNuMA4GA1UdDwEB/wQEAwIGwDAdBgNVHQ4EFgQUc7SwQFAD49tI1mUAx2e8LgiaCwUwDAYIKoEcz1UBg3UFAANJADBGAiEA1UW1wAgPpFiM+73MHepA84EFGJBKBtI+xuT0CHi4BZ8CIQCFXqckGp0toIAF7zX/fjioPm8hIRaF9/cNoRcTL06g/g==','c7SwQFAD49tI1mUAx2e8LgiaCwU=')";
+						PreparedStatement pstmt = connection.prepareStatement(insertStr);
+
+						BigDecimal certSN = new BigDecimal(String.valueOf(index)).add(new BigDecimal("248490952718")).subtract(new BigDecimal(1));
+							
+						System.out.println("--------------------------thread:" + Thread.currentThread().getName());
+						
+						pstmt.setBigDecimal(1, certSN);	
+						int result = pstmt.executeUpdate();
+						System.out.println("执行的结果是：" + result);
+
+						pstmt.close();
+						connection.close(); // 关闭连接
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+		}
+		System.out.println("---------------- 增 加 结 束 ----------------\n");
+	}
+	
+	
 	static void printfResult(Connection connection, String sqlStr) throws SQLException {
 
 		String queryStr = sqlStr;

@@ -3,8 +3,6 @@ package top.yancc.java.thread.ThreadPoolExecutor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import cn.com.infosec.asn1.cmp.PollRepContent;
-
 /**
  * 构造自己的 线程工厂
  * @author Infosec_jy

@@ -32,8 +32,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/RADS_6.2.2.1.jar"/>
-	<classpathentry kind="lib" path="lib/ServerFrameWork_6.3.1.2.jar"/>
-	<classpathentry kind="lib" path="lib/ServerFrameWork_crypto_6.3.1.2.jar"/>
-	<classpathentry kind="lib" path="lib/ISFJ_v2_0_139_22_BAISC_JDK15.jar"/>
+	<classpathentry kind="lib" path="lib/ISFJ_v2_0_139_26_BAISC_JDK15.jar"/>
+	<classpathentry kind="lib" path="lib/ServerFrameWork_6.3.1.4.jar"/>
+	<classpathentry kind="lib" path="lib/ServerFrameWork_crypto_6.3.1.4.jar"/>
+	<classpathentry kind="lib" path="lib/Dm7JdbcDriver16.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
