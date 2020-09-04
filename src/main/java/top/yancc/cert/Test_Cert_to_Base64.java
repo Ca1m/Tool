@@ -48,20 +48,19 @@ public class Test_Cert_to_Base64 {
 		
 		
 		String encode_Cert = encoder.encodeToString(bytes);
-		
 		System.out.println(encode_Cert.length());
 		System.out.println("证书文件的Base64编码:"+encode_Cert);
 		
-		// �ļ�   ת  ֤�� Cert
+		// string  to Cert
 		FileInputStream fin_2 = new FileInputStream(new File(cert));
 		CertificateFactory cf = CertificateFactory.getInstance("X.509", "INFOSEC");
 		Certificate cer_2 = cf.generateCertificate(fin_2);
 		fin_2.close();
 
-		// ֤��Cert  ת  String 
+		// cert  to  string
 		String cerB64 = encoder.encodeToString(cer_2.getEncoded());
 		System.out.println(cerB64.length());
-		System.out.println("cert��String��"+cerB64);
+		System.out.println("cert的String"+ cerB64);
 		
 
 		CertificateFactory cf_1 = CertificateFactory.getInstance("X.509", "INFOSEC");

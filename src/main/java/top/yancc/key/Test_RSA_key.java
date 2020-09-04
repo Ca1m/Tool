@@ -33,7 +33,7 @@ public class Test_RSA_key {
 		}
 		
 		// 创建CSP对象实例
-		UsbKeyCSPImpl cspImpl = new UsbKeyCSPImpl("Microsoft Base Cryptographic Provider v1.0");
+		UsbKeyCSPImpl cspImpl = new UsbKeyCSPImpl("XASJ Cryptographic Service Provider 31001");
 		// 遍历证书
 		CspCertInfo[] cspCert = cspImpl.listCert(IHSM.SIGN);
 		for (CspCertInfo cert : cspCert) {

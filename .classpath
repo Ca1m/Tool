@@ -36,5 +36,8 @@
 	<classpathentry kind="lib" path="lib/ServerFrameWork_6.3.1.4.jar"/>
 	<classpathentry kind="lib" path="lib/ServerFrameWork_crypto_6.3.1.4.jar"/>
 	<classpathentry kind="lib" path="lib/Dm7JdbcDriver16.jar"/>
+	<classpathentry kind="lib" path="lib/jna.jar"/>
+	<classpathentry kind="lib" path="lib/jna-platform.jar"/>
+	<classpathentry kind="lib" path="lib/infosec_crypto_1.5.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
