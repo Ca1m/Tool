@@ -1,5 +1,6 @@
 package top.yancc.java.thread.Executors;
 
+import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -27,7 +28,7 @@ public class Test_newCachedThreadPool {
 		System.out.println(myThread.threadPoolName);
 		*/
 		
-		MyThread myThread = new MyThread();
+		My_Runnable myThread = new My_Runnable();
 		
 		ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 		for (int i = 0; i < 10; i++) {
@@ -44,17 +45,30 @@ public class Test_newCachedThreadPool {
 		System.out.println("ThreadPool is shutdown");
 	}
 	/**
-	 * 自定义线程任务
+	 *     线程 Runable
 	 * @author Infosec_jy
-	 *
 	 */
-	static class MyThread implements Runnable {
+	static class My_Runnable implements Runnable {
 
 		@Override
 		public void run() {
 			
 			System.out.println(Thread.currentThread().getId() + "," + Thread.currentThread().getName());
 			cdl.countDown();
+		}
+	}
+	
+	/**
+	 *    线程 Runable
+	 * @author Infosec_jy
+	 */
+	static class My_Callable implements Callable<String> {
+
+
+		@Override
+		public String call() throws Exception {
+			// TODO Auto-generated method stub
+			return null;
 		}
 	}
 	
