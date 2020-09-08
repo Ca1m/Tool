@@ -15,6 +15,7 @@ public class Test_newFixedThreadPool {
 		
 		//System.out.println(Runtime.getRuntime().availableProcessors());
 		
+		
 		// 任务
 		for (int i = 0; i < 10; i++) {
 			final int index = i;
@@ -23,7 +24,7 @@ public class Test_newFixedThreadPool {
 			fixedThreadPool.execute(new Runnable() {
 				public void run() {
 					try {
-						System.out.println(index);
+						System.out.println(Thread.currentThread().getName());
 						Thread.sleep(2000);
 					} catch (Exception e) {
 						e.printStackTrace();

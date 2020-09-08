@@ -12,6 +12,7 @@ public class My_Thread extends Thread {
 	public static void main(String[] args) {
 		My_Thread thread_1 = new My_Thread();
 		thread_1.start();
+		thread_1.start();
 	}
 }
 

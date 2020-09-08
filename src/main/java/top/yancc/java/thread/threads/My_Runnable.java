@@ -13,5 +13,6 @@ public class My_Runnable implements Runnable {
 		Thread my_Runnable = new Thread(test_Runnable);
 		
 		my_Runnable.start();
+		my_Runnable.start();
 	}
 }
