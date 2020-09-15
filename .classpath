@@ -38,6 +38,7 @@
 	<classpathentry kind="lib" path="lib/infosec_crypto_1.5.jar"/>
 	<classpathentry kind="lib" path="lib/jna.jar"/>
 	<classpathentry kind="lib" path="lib/jna-platform.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/0_NetCertSFW6.2"/>
+	<classpathentry kind="lib" path="lib/ServerFrameWork_6.3.1.4.jar"/>
+	<classpathentry kind="lib" path="lib/ServerFrameWork_crypto_6.3.1.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
