@@ -36,6 +36,13 @@ class MembersInnerClass {
 		mClass.test_1();
 		mClass.test_2();
 		mClass.test_3();
+		
+		Test_1 test_1 = new Test_1();
+		
+	}
+	
+	static class Test_1 {
+		
 	}
 	
 	/**
@@ -76,7 +83,6 @@ class MembersInnerClass {
 	private Inner_ getInnerInstance() {
 		return new Inner_(this);
 	}
-	
 	
 	/**
 	 * 成员内部类

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.security.Security;
 import java.security.cert.CertificateEncodingException;
 
+import cn.com.infosec.asn1.x509.X509Name;
 import cn.com.infosec.jce.provider.InfosecProvider;
 import cn.com.infosec.netcert.framework.crypto.CryptoException;
 import cn.com.infosec.netcert.framework.crypto.IHSM;
@@ -32,7 +33,7 @@ public class Test_SM2_key {
 		// 龙脉   /opt/jy/0__driver/libgm3000.1.0.so
 		// 德安 D:\2__Program\5__Key_Tools\1__德安__key\智能密码钥匙V2.3版本动态库\智能密码钥匙V2.3版本动态库\win_v2.1_release_64
 		String devFile = "C:\\Windows\\System32\\arguskey_csp11.dll";
-		devFile = "C:\\Windows\\System32\\WTSKFInterface.dll";
+		//devFile = "C:\\Windows\\System32\\WTSKFInterface.dll";
 		//devFile = "D:\\mtoken_gm3000_x64_anke.dll";
 		//devFile = "D:\\ISSKFAPI31001_x64_anke.dll";
 		
@@ -42,17 +43,15 @@ public class Test_SM2_key {
 			System.out.println(s);
 		}
 		
-		
-		test_export_cert();
-		
-		/*
-		UsbKeySKFImpl usbSkf = new UsbKeySKFImpl(devFile,"0001010674843E91");
-		usbSkf.verifyPIN("123456");
+		UsbKeySKFImpl usbSkf = new UsbKeySKFImpl(devFile,"95130007BB6B3CA4");
+		//usbSkf.verifyPIN("123456");
 		String[] csr = usbSkf.genCSR(256, new X509Name("cn=test"));
 		for (String s : csr) {
 			System.out.println(s);
 		}
-		*/
+		
+		//test_export_cert();
+		
 		/*
 		// 通过 驱动文件 和 设备号，创建对象实例
 		UsbKeySKFImpl usbSkf = new UsbKeySKFImpl(devFile,"89B97BD169563239");
