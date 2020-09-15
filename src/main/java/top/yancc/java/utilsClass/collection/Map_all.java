@@ -1,4 +1,4 @@
-package top.yancc.java.collection;
+package top.yancc.java.utilsClass.collection;
 
 import java.util.HashMap;
 import java.util.Iterator;

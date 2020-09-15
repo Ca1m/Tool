@@ -1,4 +1,4 @@
-package top.yancc.java;
+package top.yancc.java.utilsClass;
 
 import java.util.Arrays;
 import java.util.Comparator;
