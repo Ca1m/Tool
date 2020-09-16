@@ -18,6 +18,7 @@ public class Test_R_D_101 {
 		action();
 	}
 	
+	
 	public static int init() throws Throwable {
 		Security.addProvider(new cn.com.infosec.jce.provider.InfosecProvider());
 
