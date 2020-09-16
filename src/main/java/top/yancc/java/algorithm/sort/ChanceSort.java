@@ -1,4 +1,4 @@
-package top.yancc.java.sort;
+package top.yancc.java.algorithm.sort;
 
 // 选择排序  选择最小的
 // 空间复杂度 O(1)  时间复杂度 O(2n)
