@@ -1,6 +1,5 @@
 package top.yancc.rads;
 
-import cn.com.infosec.netcert.framework.*;
 import cn.com.infosec.netcert.framework.resource.*;
 import cn.com.infosec.netcert.rads61.*;
 import java.security.Security;

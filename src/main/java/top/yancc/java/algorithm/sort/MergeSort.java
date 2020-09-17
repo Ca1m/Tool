@@ -7,7 +7,8 @@ public class MergeSort {
 
 		int[] nums = new int[] { 5, 11, 3, 1, 6, 2, 7, 9, 4 };
 
-		nums = iterationSort(nums);
+		//nums = iterationSort(nums);
+		nums = recursionSort(nums);
 		for (int i = 0; i < nums.length; i++) {
 			System.out.print(nums[i] + ",");
 		}
@@ -49,21 +50,41 @@ public class MergeSort {
 	// 递归
 	public static int[] recursionSort(int[] nums) {
 		
-		return recursionFun(nums, 0, nums.length);
+		return recursionFun(nums, 0, nums.length-1);
 	}
 	
 	public static int[] recursionFun(int[] arr, int left, int right) {
 		
 		if (left < right) {
+			int mid = (right + left) / 2;
+			arr = recursionFun(arr, left, mid); // 左部分
+			arr = recursionFun(arr, mid + 1, right);
 			
-			int mid = (right - left) / 2;
-			recursionFun(arr, left, mid); // 左部分
-			recursionFun(arr, mid, right);
+			merge(arr, left, mid, right);
 		}
-		
 		return arr;
 	}
 	
+	public static void merge(int[] arr, int left, int mid, int right) {
+		
+		int[] a = new int[right - left + 1];
+		int i = left;
+		int j = mid + 1;
+		int k = 0;
+		
+		while (i <= mid && j <= right) {
+			a[k++] = arr[i] < arr[j] ? arr[i++] : arr[j++];
+		}
+		while (i <= mid) {
+			a[k++] = arr[i++];
+		}
+		while (j <= mid) {
+			a[k++] = arr[j++];
+		}
+		for (int e = 0; e < k; e++) {
+			arr[left++] = a[e];
+		}
+	}
 	
 	
 	
