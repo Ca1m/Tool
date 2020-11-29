@@ -7,6 +7,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class C3P0 {
 
+	
 	private ComboPooledDataSource cpds;
 	
 	private static C3P0 c3P0Properties;
