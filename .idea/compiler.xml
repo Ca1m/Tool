@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="leetCode" />
+        <module name="io" />
+        <module name="hutool" />
+        <module name="collection" />
+        <module name="basic" />
+        <module name="strategy" />
+        <module name="db" />
+        <module name="Thread" />
+        <module name="jdk1.8_new" />
+        <module name="Certificate" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="basic" target="8" />
+      <module name="Certificate" target="8" />
+      <module name="collection" target="8" />
+      <module name="db" target="8" />
+      <module name="hutool" target="8" />
+      <module name="infosec" target="8" />
+      <module name="io" target="8" />
+      <module name="jdk1.8_new" target="8" />
+      <module name="leetCode" target="8" />
+      <module name="strategy" target="8" />
+      <module name="Thread" target="8" />
+      <module name="tool_jy" target="8" />
+      <module name="untitled" target="8" />
+      <module name="untitled11" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
