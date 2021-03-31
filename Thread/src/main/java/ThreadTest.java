@@ -19,6 +19,15 @@ public class ThreadTest {
      **/
     public static void main(String[] args) {
 
+        Thread thread = new Thread();
+
+
+
+
+
+    }
+    // 临时保存
+    public static void main1(String[] args) {
         System.out.println("第一种创建线程的方式:集成 Thread");
         Thread1 thread1 = new Thread1();
         thread1.start();
@@ -29,7 +38,7 @@ public class ThreadTest {
 
         System.out.println("第三种创建线程的方式：线程池");
         ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
             singleThreadExecutor.execute(new Runnable1());
         }
 
@@ -41,8 +50,6 @@ public class ThreadTest {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-
     }
 
     // 继承 Thread 实现线程构造器
