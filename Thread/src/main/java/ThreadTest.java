@@ -1,3 +1,7 @@
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * #org 北京信安世纪科技股份有限公司
  * @author jiangyan
@@ -15,13 +19,29 @@ public class ThreadTest {
      **/
     public static void main(String[] args) {
 
-        System.out.println("第一种创建线程的方式");
+        System.out.println("第一种创建线程的方式:集成 Thread");
         Thread1 thread1 = new Thread1();
         thread1.start();
 
-        System.out.println("第二种创建线程的方式");
+        System.out.println("第二种创建线程的方式：实现 Runnable");
         Thread thread2 = new Thread(new Runnable1());
         thread2.start();
+
+        System.out.println("第三种创建线程的方式：线程池");
+        ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
+        for (int i = 0; i < 10; i++) {
+            singleThreadExecutor.execute(new Runnable1());
+        }
+
+        System.out.println("第四种创建线程的方式：Callable");
+        Callable1 callable1 = new Callable1();
+
+        try {
+            callable1.call();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
 
     }
 
@@ -40,7 +60,13 @@ public class ThreadTest {
         }
     }
 
-
+    // 实现 Callable
+    static class Callable1 implements Callable<String> {
+        @Override
+        public String call() throws Exception {
+            return "implements Callable";
+        }
+    }
 
 
 }
