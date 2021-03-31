@@ -7,7 +7,7 @@ public class Car {
 
 	}
 
-	public static void goHome () {
+	public static void goHome() {
 		System.out.println("home");
 	}
 }

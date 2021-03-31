@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="leetCode" />
         <module name="io" />
+        <module name="infosec" />
         <module name="hutool" />
         <module name="collection" />
         <module name="basic" />
@@ -15,12 +16,10 @@
         <module name="db" />
         <module name="Thread" />
         <module name="jdk1.8_new" />
-        <module name="Certificate" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="basic" target="8" />
-      <module name="Certificate" target="8" />
       <module name="collection" target="8" />
       <module name="db" target="8" />
       <module name="hutool" target="8" />
