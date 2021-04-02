@@ -1,6 +1,7 @@
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.function.Supplier;
 
 /**
  * #org 北京信安世纪科技股份有限公司
@@ -9,6 +10,10 @@ import java.util.concurrent.Executors;
  * @since 5.5.40.12 Patch32.1 +
  */
 public class ThreadTest {
+
+    private static ThreadLocal<Integer> threadLocal1 = ThreadLocal.withInitial(() -> 1000);
+
+    private static ThreadLocal<String> threadLocal2 = new ThreadLocal<>();
 
     /**
      * 创建 Thread 的三种方式
@@ -19,9 +24,30 @@ public class ThreadTest {
      **/
     public static void main(String[] args) {
 
+        ThreadLocal<Integer> threadLocal3 = ThreadLocal.withInitial(new Supplier<Integer>() {
+            @Override
+            public Integer get() {
+                return 123;
+            }
+        });
+
         Thread thread = new Thread();
 
+        System.out.println(threadLocal1.get());
+        threadLocal1.remove();
+        System.out.println(threadLocal1.get());
 
+
+        threadLocal2.set("1234");
+
+        System.out.println(threadLocal2.get());
+        threadLocal2.remove();
+        System.out.println(threadLocal2.get());
+
+
+        System.out.println(threadLocal3.get());
+
+        new InheritableThreadLocal<String>();
 
 
 
