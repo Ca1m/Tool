@@ -1,3 +1,5 @@
+package object_oriented;
+
 /**
  * #org 北京信安世纪科技股份有限公司
  * @author jiangyan
