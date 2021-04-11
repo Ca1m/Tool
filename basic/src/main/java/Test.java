@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -24,6 +26,9 @@ public class Test {
 
         Vector<String> vector = new Vector();
 
+
+        List<String> list = new ArrayList<String>();
+        list.add("111");
 
 
     }
